@@ -60,8 +60,25 @@ let image: UIImage = ...obtain uiimage somehow...
 let data = UIImageJPEGRepresentation(image, 0.5)
 ```
 
+# Rubric 
 
-## Individual Screen Details
+Criteria | Points
+:---|:---
+App uses AutoLayout correctly for all iPhones in portrait | 8 Points
+Variable Naming and Readability | 4 Points
+App uses MVC Design Patterns | 4 Points
+Login screen works as expected | 4 Points
+App uses Firebase's Auth appropriately | 4 Points
+Users can create a post and upload it to Firebase | 4 Points
+App uses Firebase's Storage appropriately | 4 Points
+Users can see well-formatted posts in their feed | 4 Points
+App uses Firebase's Database appropriately | 4 Points
+
+A total of 40 points
+
+
+
+# Individual Screen Details
 
 ### Login
 ---
@@ -155,19 +172,3 @@ let data = UIImageJPEGRepresentation(image, 0.5)
 		</tr>
 	</tbody>
 </table>
-
-# Rubric 
-
-Criteria | Points
-:---|:---
-App uses AutoLayout correctly for all iPhones in portrait | 8 Points
-Variable Naming and Readability | 4 Points
-App uses MVC Design Patterns | 4 Points
-Login screen works as expected | 4 Points
-App uses Firebase's Auth appropriately | 4 Points
-Users can create a post and upload it to Firebase | 4 
-App uses Firebase's Storage appropriately | 4 Points
-Users can see well-formatted posts in their feed | 4 Points
-App uses Firebase's Database appropriately | 4 Points
-
-A total of 40 points
