@@ -12,8 +12,8 @@ import Firebase
 
 extension DBService {
     public func addUser() {
-        let user = DBService.manager.getUsers().child((FirebaseAuthService.getCurrentUser()?.userID)!)
-        user.setValue(["userID" : FirebaseAuthService.getCurrentUser()!.userID,
+        let user = DBService.manager.getUsers().child(FirebaseAuthService.getCurrentUser()!.uid)
+        user.setValue(["userID" : FirebaseAuthService.getCurrentUser()!.uid,
                        "userEmail" : FirebaseAuthService.getCurrentUser()!.email]) { (error, dbRef) in
                         if let error = error {
                             print("addUser error: \(error.localizedDescription)")
@@ -24,3 +24,4 @@ extension DBService {
     }
     
 }
+

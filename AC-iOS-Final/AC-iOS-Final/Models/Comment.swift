@@ -7,64 +7,21 @@
 //
 
 import Foundation
-import UIKit
-import Firebase
 
-extension DBService {
-    public func addComment(post: Post, commentStr: String) {
-        let childByAutoId = DBService.manager.getComments().childByAutoId()
-        childByAutoId.setValue(["userID"                  : FirebaseAuthService.getCurrentUser()!.uid,
-                                "username"          : post.username,
-                                "postID"              : post.postID,
-                                "postTitle"                    : post.caption,
-                                "postImageStr"            : post.postImageStr,
-                                "postCategory"            : post.category,
-                                "dateOfPost"       : formatDate(with: Date()),
-                                "commentID"        : childByAutoId.key,
-                                "commentStr"       : commentStr,
-                                "commentsFlagCount": 0,]) { (error, dbRef) in
-                                    if let error = error {
-                                        print("addComments error: \(error)")
-                                    } else {
-                                        print("comments added @ database reference: \(dbRef)")
-                                    }
-        }
+class Comment {
+    
+    let commentID: String
+    let commentStr: String
+    let userID: String
+    let postID: String
+    let postImageStr: String
+    
+    init(dict: [String : Any]) {
+        commentID = dict["commentID"] as? String ?? ""
+        commentStr = dict["commentStr"] as? String ?? ""
+        userID = dict["userID"] as? String ?? ""
+        postID = dict["postID"] as? String ?? ""
+        postImageStr = dict["postImageStr"] as? String ?? ""
     }
     
-    
-    public func loadAllComments(postID: String, completionHandler: @escaping ([Comment]?) -> Void) {
-        let ref = DBService.manager.getComments()
-        ref.observe(.value) { (snapshot) in
-            var allComments = [Comment]()
-            for child in snapshot.children {
-                let dataSnapshot = child as! DataSnapshot
-                if let dict = dataSnapshot.value as? [String: Any] {
-                    let comment = Comment.init(dict: dict)
-                    if comment.postID == postID {
-                        allComments.append(comment)
-                    }
-                }
-            }
-            completionHandler(allComments)
-        }
-    }
-    
-    public func loadUserComments(userID: String, completionHandler: @escaping ([Comment]?) -> Void) {
-        let ref = DBService.manager.getComments()
-        ref.observe(.value) { (snapshot) in
-            var userComments = [Comment]()
-            for child in snapshot.children {
-                let dataSnapshot = child as! DataSnapshot
-                if let dict = dataSnapshot.value as? [String: Any] {
-                    let comment = Comment.init(dict: dict)
-                    if userID == comment.userID {
-                        userComments.append(comment)
-                    }
-                }
-            }
-            completionHandler(userComments)
-        }
-    }
 }
-
-

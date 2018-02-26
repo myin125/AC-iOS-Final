@@ -14,6 +14,7 @@
 		74447F9320447CD800E26368 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9220447CD800E26368 /* Post.swift */; };
 		74447F9520447CE800E26368 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9420447CE800E26368 /* Comment.swift */; };
 		74447F972044835A00E26368 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F962044835A00E26368 /* StorageService.swift */; };
+		74447F992044896100E26368 /* StorageService+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F982044896100E26368 /* StorageService+Images.swift */; };
 		747B16B020445D9500C48B2E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16AF20445D9500C48B2E /* LoginView.swift */; };
 		747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B12044611D00C48B2E /* LoginViewController.swift */; };
 		747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */; };
@@ -38,6 +39,7 @@
 		74447F9220447CD800E26368 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		74447F9420447CE800E26368 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		74447F962044835A00E26368 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		74447F982044896100E26368 /* StorageService+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageService+Images.swift"; sourceTree = "<group>"; };
 		747B16AF20445D9500C48B2E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		747B16B12044611D00C48B2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				74447F962044835A00E26368 /* StorageService.swift */,
+				74447F982044896100E26368 /* StorageService+Images.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			files = (
 				747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */,
 				747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */,
+				74447F992044896100E26368 /* StorageService+Images.swift in Sources */,
 				747B16BA204468D500C48B2E /* FeedTableViewController.swift in Sources */,
 				74447F9320447CD800E26368 /* Post.swift in Sources */,
 				74A4F9522044745E00341155 /* DBService.swift in Sources */,
