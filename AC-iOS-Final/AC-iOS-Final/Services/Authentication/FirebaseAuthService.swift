@@ -10,21 +10,16 @@ import Foundation
 import Firebase
 
 @objc protocol FirebaseAuthServiceDelegate: class {
-    // create user delegate protocols
+    
     @objc optional func didFailCreatingUser(_ authService: FirebaseAuthService, error: Error)
     @objc optional func didCreateUser(_ authService: FirebaseAuthService, user: User)
     
-    // sign in delegate protocols
     @objc optional func didFailSignIn(_ authService: FirebaseAuthService, error: Error)
     @objc optional func didSignIn(_ authService: FirebaseAuthService, user: User)
     
-    // sign out delegate protocols
     @objc optional func didFailSigningOut(_ authService: FirebaseAuthService, error: Error)
     @objc optional func didSignOut(_ authService: FirebaseAuthService)
     
-    // reset password delegate protocols
-    @objc optional func didFailSendResetPassword(_ authService: FirebaseAuthService, error: Error)
-    @objc optional func didSendResetPassword(_ authService: FirebaseAuthService)
 }
 
 //NSObject is the umbrella term for all objects (you need this when you're calling objective-c delegates and protocols because otherwise, XCode won't be able to assign the type through type inference)

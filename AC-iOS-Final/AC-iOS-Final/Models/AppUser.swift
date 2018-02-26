@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct User: Codable {
+struct AppUser {
     
     let userID: String
     let userSavedPosts: [String]
