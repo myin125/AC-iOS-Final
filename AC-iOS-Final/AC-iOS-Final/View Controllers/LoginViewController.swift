@@ -13,16 +13,15 @@ class LoginViewController: UIViewController {
     
     private let loginView = LoginView()
     
-//    private var authUserService = AuthUserService()
+    private var authUserService = FirebaseAuthService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        authUserService.delegate = self
         self.view.backgroundColor = UIColor.white
         view.addSubview(loginView)
-//        loginView.loginButton.addTarget(self, action: #selector(userLoginAccount), for: .touchUpInside)
-//        loginView.forgotPasswordButton.addTarget(self, action: #selector(forgotPassword), for: .touchUpInside)
-//        loginView.createNewAccountButton.addTarget(self, action: #selector(createNewAccount), for: .touchUpInside)
+        loginView.loginButton.addTarget(self, action: #selector(userLoginAccount), for: .touchUpInside)
+        loginView.registerButton.addTarget(self, action: #selector(createNewAccount), for: .touchUpInside)
     }
     
     @objc private func userLoginAccount() {
@@ -33,7 +32,7 @@ class LoginViewController: UIViewController {
             showAlert(title: "Come on, really!? No spaces allowed!", message: nil)
             return
         }
- //       authUserService.signIn(email: loginView.emailLoginTextField.text!, password: passwordText)
+        authUserService.signIn(email: loginView.emailLoginTextField.text!, password: passwordText)
     }
     
     @objc private func createNewAccount() {
@@ -46,7 +45,7 @@ class LoginViewController: UIViewController {
             showAlert(title: "Come on, really!? No spaces allowed!", message: nil)
             return
         }
-//        authUserService.createUser(email: emailText, password: passwordText)
+        authUserService.createUser(email: emailText, password: passwordText)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -63,37 +62,38 @@ class LoginViewController: UIViewController {
     }
 }
 
-//extension LoginViewController: AuthUserServiceDelegate {
-//    func didCreateUser(_ userService: AuthUserService, user: User) {
-//        print("didCreateUser: \(user)")
-//        Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
-//            if let error = error {
-//                print("error with sending email verification, \(error)")
-//                self.showAlert(title: "Error", message: "error with sending email verification");
-//                self.authUserService.signOut()
-//            } else {
-//                print("email verification sent")
-//                self.showAlert(title: "Verification Sent", message: "Please verify email");
-//                self.authUserService.signOut()
-//            }
-//        })
-//    }
+extension LoginViewController: FirebaseAuthServiceDelegate {
+    func didCreateUser(_ userService: FirebaseAuthService, user: User) {
+        print("didCreateUser: \(user)")
+        Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
+            if let error = error {
+                print("error with sending email verification, \(error)")
+                self.showAlert(title: "Error", message: "error with sending email verification");
+                self.authUserService.signOut()
+            } else {
+                print("email verification sent")
+                self.showAlert(title: "Verification Sent", message: "Please verify email");
+                self.authUserService.signOut()
+            }
+        })
+    }
 
-//    func didFailCreatingUser(_ userService: AuthUserService, error: Error) {
-//        showAlert(title: error.localizedDescription, message: nil)
-//    }
+    func didFailCreatingUser(_ userService: FirebaseAuthService, error: Error) {
+        showAlert(title: error.localizedDescription, message: nil)
+    }
 
-//    func didSignIn(_ userService: AuthUserService, user: User) {
-//        if Auth.auth().currentUser!.isEmailVerified {
-//            self.dismiss(animated: true, completion: nil)
-//        } else {
-//            showAlert(title: "Email Verification Needed", message: "Please verify email")
-//            authUserService.signOut()
-//            return
-//        }
-//    }
+    func didSignIn(_ userService: FirebaseAuthService, user: User) {
+        if Auth.auth().currentUser!.isEmailVerified {
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            showAlert(title: "Email Verification Needed", message: "Please verify email")
+            authUserService.signOut()
+            return
+        }
+    }
 
-//    func didFailSignIn(_ userService: AuthUserService, error: Error) {
-//        showAlert(title: error.localizedDescription, message: nil)
-//    }
-//}
+    func didFailSignIn(_ userService: FirebaseAuthService, error: Error) {
+        showAlert(title: error.localizedDescription, message: nil)
+    }
+}
+
