@@ -23,7 +23,7 @@ class UploadViewController: UIViewController {
         setupImagePicker()
     }
     
-    func setupImagePicker() {
+    private func setupImagePicker() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(cameraRollImagePicker))
         uploadViewPage.postImage.addGestureRecognizer(tap)
         uploadViewPage.postImage.isUserInteractionEnabled = true

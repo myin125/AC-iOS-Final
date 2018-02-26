@@ -18,14 +18,16 @@ class UploadView: UIView {
         return picture
     }()
     
-    lazy var captionTextView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = true
-        textView.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
-        textView.autocapitalizationType = .none
-        textView.textColor = UIColor.black
-        textView.backgroundColor = UIColor.lightGray
-        return textView
+    lazy var captionTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Insert Caption Here"
+        textField.textAlignment = .center
+        textField.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
+        textField.autocapitalizationType = .sentences
+        textField.autocorrectionType = .yes
+        textField.textColor = UIColor.black
+        textField.backgroundColor = UIColor.lightGray
+        return textField
     }()
     
     override init(frame: CGRect) {
@@ -45,7 +47,7 @@ class UploadView: UIView {
     
     private func setupViews() {
         setupButtonImage()
-        setupCaptionTextView()
+        setupCaptionTextField()
     }
     
     private func setupButtonImage() {
@@ -57,13 +59,13 @@ class UploadView: UIView {
         postImage.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.55).isActive = true
     }
     
-    private func setupCaptionTextView() {
-        addSubview(captionTextView)
-        captionTextView.translatesAutoresizingMaskIntoConstraints = false
-        captionTextView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
-        captionTextView.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 5).isActive = true
-        captionTextView.widthAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.95).isActive = true
-        captionTextView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.35).isActive = true
+    private func setupCaptionTextField() {
+        addSubview(captionTextField)
+        captionTextField.translatesAutoresizingMaskIntoConstraints = false
+        captionTextField.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor).isActive = true
+        captionTextField.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: 5).isActive = true
+        captionTextField.widthAnchor.constraint(equalTo: postImage.widthAnchor, multiplier: 0.95).isActive = true
+        captionTextField.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.35).isActive = true
     }
     
 }
