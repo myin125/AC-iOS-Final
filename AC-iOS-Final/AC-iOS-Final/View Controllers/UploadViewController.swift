@@ -7,29 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class UploadViewController: UIViewController {
+    
+    let uploadViewPage = UploadView()
+    
+    let fireBaseAuth = FirebaseAuthService()
+    
+    var selectedImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        view.addSubview(uploadViewPage)
+        setupImagePicker()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setupImagePicker() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(cameraRollImagePicker))
+        uploadViewPage.postImage.addGestureRecognizer(tap)
+        uploadViewPage.postImage.isUserInteractionEnabled = true
     }
-    */
+    
+    @objc func cameraRollImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+}
 
+extension UploadViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info ["UIImagePickerControllerOriginalImage"] as? UIImage{
+            selectedImage = image
+            uploadViewPage.postImage.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
