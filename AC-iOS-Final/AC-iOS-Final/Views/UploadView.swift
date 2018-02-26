@@ -13,7 +13,8 @@ class UploadView: UIView {
     lazy var postImage: UIImageView = {
         let picture = UIImageView()
         picture.image = #imageLiteral(resourceName: "camera_icon")
-        picture.backgroundColor = UIColor.lightGray
+        picture.contentMode = .scaleAspectFit
+        picture.backgroundColor = UIColor.white
         return picture
     }()
     
@@ -23,7 +24,7 @@ class UploadView: UIView {
         textView.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
         textView.autocapitalizationType = .none
         textView.textColor = UIColor.black
-        textView.backgroundColor = UIColor.white
+        textView.backgroundColor = UIColor.lightGray
         return textView
     }()
     
