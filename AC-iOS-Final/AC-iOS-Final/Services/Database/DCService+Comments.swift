@@ -14,7 +14,7 @@ extension DBService {
     
     public func addComment(post: Post, commentStr: String) {
         let childByAutoId = DBService.manager.getComments().childByAutoId()
-        childByAutoId.setValue(["userID" : FirebaseAuthService.getCurrentUser()?.userID,
+        childByAutoId.setValue(["userID" : FirebaseAuthService.getCurrentUser()?.uid,
                                 "postID" : post.postID,
                                 "postImageStr" : post.postImageStr,
                                 "commentID"        : childByAutoId.key,

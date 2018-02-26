@@ -11,89 +11,84 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    private let loginView = LoginView()
+    let loginView = LoginView()
     
-    private var authUserService = FirebaseAuthService()
+    let fireBaseAuth = FirebaseAuthService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        authUserService.delegate = self
         self.view.backgroundColor = UIColor.white
         view.addSubview(loginView)
-        loginView.loginButton.addTarget(self, action: #selector(userLoginAccount), for: .touchUpInside)
-        loginView.registerButton.addTarget(self, action: #selector(createNewAccount), for: .touchUpInside)
+        fireBaseAuth.delegate = self
+        setupLoginButtonAction()
+        setupRegisterButtonAction()
     }
     
-    @objc private func userLoginAccount() {
-        print("user login button pressed")
-        guard let passwordText = loginView.passwordTextField.text else {print("password is nil"); return}
-        guard !passwordText.isEmpty else {print("password field is empty"); return}
-        if passwordText.contains(" ") {
-            showAlert(title: "Come on, really!? No spaces allowed!", message: nil)
-            return
-        }
-        authUserService.signIn(email: loginView.emailLoginTextField.text!, password: passwordText)
+    //This function is code for when the user touches the login button.
+    func setupLoginButtonAction() {
+        loginView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
     
-    @objc private func createNewAccount() {
-        print("create new account button pressed")
-        guard let emailText = loginView.emailLoginTextField.text else {print("email is nil"); return}
-        guard !emailText.isEmpty else {print("email field is empty"); return}
-        guard let passwordText = loginView.passwordTextField.text else {print("password is nil"); return}
-        guard !passwordText.isEmpty else {print("password field is empty"); return}
-        if passwordText.contains(" ") {
-            showAlert(title: "Come on, really!? No spaces allowed!", message: nil)
-            return
-        }
-        authUserService.createUser(email: emailText, password: passwordText)
+    //This function is code for firebase to check the text inside the login textfields and see if they match the database.
+    @objc func login() {
+        fireBaseAuth.signIn(email: loginView.emailLoginTextField.text!, password: loginView.passwordTextField.text!)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        loginView.emailLoginTextField.resignFirstResponder()
-        loginView.passwordTextField.resignFirstResponder()
+    //This function is code for when the user touches the create user account button.
+    func setupRegisterButtonAction() {
+        loginView.registerButton.addTarget(self, action: #selector(newUser), for: .touchUpInside)
     }
     
-    private func showAlert(title: String, message: String?) {
+    //This function is code for firebase to check the text inside the login textfields and to add the new user account information to the auth.
+    @objc func newUser() {
+        fireBaseAuth.createUser(email: loginView.emailLoginTextField.text!, password: loginView.passwordTextField.text!)
+    }
+    
+    //This function determines the function of an alert.
+    func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) {alert in }
+        let okAction = UIAlertAction(title: "Ok", style: .default) { alert in }
         alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
-        
     }
+    
 }
 
 extension LoginViewController: FirebaseAuthServiceDelegate {
-    func didCreateUser(_ userService: FirebaseAuthService, user: User) {
-        print("didCreateUser: \(user)")
-        Auth.auth().currentUser!.sendEmailVerification(completion: { (error) in
-            if let error = error {
-                print("error with sending email verification, \(error)")
-                self.showAlert(title: "Error", message: "error with sending email verification");
-                self.authUserService.signOut()
-            } else {
-                print("email verification sent")
-                self.showAlert(title: "Verification Sent", message: "Please verify email");
-                self.authUserService.signOut()
-            }
-        })
+    
+    //This function is called when creating a new user account fails.
+    //.localizedDescription gives you a detailed error message (short and succinct); .description just turns the text into a string.
+    func didFailCreatingUser(_ authService: FirebaseAuthService, error: Error) {
+        //A call for the show alert function to alert the user that an error has occurred.
+        showAlert(title: "Error", message: error.localizedDescription)
     }
-
-    func didFailCreatingUser(_ userService: FirebaseAuthService, error: Error) {
-        showAlert(title: error.localizedDescription, message: nil)
+    
+    //This function is called when creating a new user account is successful.
+    func didCreateUser(_ authService: FirebaseAuthService, user: User) {
+        dismiss(animated: true, completion: nil) //This code dismisses the Login View.
     }
-
-    func didSignIn(_ userService: FirebaseAuthService, user: User) {
-        if Auth.auth().currentUser!.isEmailVerified {
-            self.dismiss(animated: true, completion: nil)
-        } else {
-            showAlert(title: "Email Verification Needed", message: "Please verify email")
-            authUserService.signOut()
-            return
-        }
+    
+    //This function is called when the user successfully signs in.
+    func didSignIn(_ authService: FirebaseAuthService, user: User) {
+        dismiss(animated: true, completion: nil) //This code dismisses the Login View.
     }
-
-    func didFailSignIn(_ userService: FirebaseAuthService, error: Error) {
-        showAlert(title: error.localizedDescription, message: nil)
+    
+    //This function is called when the user failed to sign in.
+    func didFailSignIn(_ authService: FirebaseAuthService, error: Error) {
+        //A call for the show alert function to alert the user that an error has occurred.
+        showAlert(title: "Sign In Error", message: error.localizedDescription)
     }
+    
+    //this function is called when the user successfully signs out
+    func didSignOut(_ authService: FirebaseAuthService) {
+        //A call for the show alert function to alert the user that sign out has happened.
+        showAlert(title: "Sign Out Success", message: "Have a good day!")
+    }
+    
+    //this function is called when the user failed to sign out
+    func didFailSigningOut(_ authService: FirebaseAuthService, error: Error) {
+        //A call for the show alert function to alert the user that an error has occurred.
+        showAlert(title: "Sign Out Error", message: error.localizedDescription)
+    }
+    
 }
-

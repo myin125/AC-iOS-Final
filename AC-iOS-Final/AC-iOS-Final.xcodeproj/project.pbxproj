@@ -16,6 +16,9 @@
 		74447F972044835A00E26368 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F962044835A00E26368 /* StorageService.swift */; };
 		74447F992044896100E26368 /* StorageService+Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F982044896100E26368 /* StorageService+Images.swift */; };
 		74447F9B2044948E00E26368 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9A2044948E00E26368 /* FeedTableViewController.swift */; };
+		7447A5092044A22500E0C585 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7447A5082044A22500E0C585 /* Default-568h@2x.png */; };
+		7447A50B2044A5F800E0C585 /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447A50A2044A5F800E0C585 /* UploadViewController.swift */; };
+		7447A50D2044A60B00E0C585 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7447A50C2044A60B00E0C585 /* UploadView.swift */; };
 		747B16B020445D9500C48B2E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16AF20445D9500C48B2E /* LoginView.swift */; };
 		747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B12044611D00C48B2E /* LoginViewController.swift */; };
 		747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */; };
@@ -41,6 +44,9 @@
 		74447F962044835A00E26368 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		74447F982044896100E26368 /* StorageService+Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StorageService+Images.swift"; sourceTree = "<group>"; };
 		74447F9A2044948E00E26368 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		7447A5082044A22500E0C585 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7447A50A2044A5F800E0C585 /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		7447A50C2044A60B00E0C585 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		747B16AF20445D9500C48B2E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		747B16B12044611D00C48B2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 		54915208203F335F009C7138 = {
 			isa = PBXGroup;
 			children = (
+				7447A5082044A22500E0C585 /* Default-568h@2x.png */,
 				54915213203F335F009C7138 /* AC-iOS-Final */,
 				54915212203F335F009C7138 /* Products */,
 				74F087DC2044700A00758F1E /* GoogleService-Info.plist */,
@@ -121,6 +128,7 @@
 			children = (
 				747B16AF20445D9500C48B2E /* LoginView.swift */,
 				747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */,
+				7447A50C2044A60B00E0C585 /* UploadView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 			children = (
 				747B16B12044611D00C48B2E /* LoginViewController.swift */,
 				74447F9A2044948E00E26368 /* FeedTableViewController.swift */,
+				7447A50A2044A5F800E0C585 /* UploadViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -254,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */,
+				7447A5092044A22500E0C585 /* Default-568h@2x.png in Resources */,
 				54915227203F339A009C7138 /* Assets.xcassets in Resources */,
 				74F087DD2044700A00758F1E /* GoogleService-Info.plist in Resources */,
 			);
@@ -337,10 +347,12 @@
 				749392D5204475EB00D5322B /* DBService+Users.swift in Sources */,
 				74447F9B2044948E00E26368 /* FeedTableViewController.swift in Sources */,
 				747B16B020445D9500C48B2E /* LoginView.swift in Sources */,
+				7447A50B2044A5F800E0C585 /* UploadViewController.swift in Sources */,
 				74447F9520447CE800E26368 /* Comment.swift in Sources */,
 				74A4F950204473EA00341155 /* FirebaseAuthService.swift in Sources */,
 				749392D72044760800D5322B /* DBService+Posts.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
+				7447A50D2044A60B00E0C585 /* UploadView.swift in Sources */,
 				74447F9120447CCD00E26368 /* AppUser.swift in Sources */,
 				74447F972044835A00E26368 /* StorageService.swift in Sources */,
 			);
@@ -474,7 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Z2M27857L;
-				INFOPLIST_FILE = "AC-iOS-Final/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "c4q.AC-iOS-Final";
@@ -491,7 +503,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Z2M27857L;
-				INFOPLIST_FILE = "AC-iOS-Final/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "c4q.AC-iOS-Final";

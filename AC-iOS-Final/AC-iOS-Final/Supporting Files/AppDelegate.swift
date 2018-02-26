@@ -18,10 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        let viewController = LoginViewController()
+        //Feed View Controller
+        let feedViewController = FeedTableViewController()
+        let feedViewNavCon = UINavigationController(rootViewController: feedViewController)
+        feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: #imageLiteral(resourceName: "chickenleg"), tag: 0)
         
+        //Upload View Controller
+        let uploadViewController = UploadViewController()
+        let uploadViewNavCon = UINavigationController(rootViewController: uploadViewController)
+        uploadViewController.tabBarItem = UITabBarItem(title: "Upload", image: #imageLiteral(resourceName: "upload"), tag: 1)
+        
+        //Tab Bar Controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [feedViewNavCon, uploadViewNavCon]
+        
+        //Window setup
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = viewController
+        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         
         return true

@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import Foundation
+import Kingfisher
+import Firebase
 
 class FeedTableViewCell: UITableViewCell {
     
+    lazy var cellContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        return view
+    }()
+    
     lazy var dataContainer: UIView = {
         let dc = UIView()
-        dc.backgroundColor = .white
+        dc.backgroundColor = UIColor.white
         return dc
     }()
     
@@ -23,6 +32,14 @@ class FeedTableViewCell: UITableViewCell {
         textView.isEditable = true
         textView.font = UIFont.systemFont(ofSize: 20, weight: UIFont.Weight.medium)
         return textView
+    }()
+    
+    lazy var postImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "bgBrunch")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        return imageView
     }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
@@ -56,14 +73,23 @@ class FeedTableViewCell: UITableViewCell {
              commentTextView.topAnchor.constraint(equalTo: dataContainer.bottomAnchor, constant: 2)])
     }
     
+    private func addPostImageView() {
+        addSubview(postImageView)
+        postImageView.translatesAutoresizingMaskIntoConstraints = false
+        postImageView.leadingAnchor.constraint(equalTo: cellContainer.leadingAnchor).isActive = true
+        postImageView.trailingAnchor.constraint(equalTo: cellContainer.trailingAnchor).isActive = true
+        postImageView.topAnchor.constraint(equalTo: dataContainer.topAnchor).isActive = true
+        postImageView.bottomAnchor.constraint(equalTo: dataContainer.bottomAnchor).isActive = true
+    }
+    
 //    public func configurePostCell(post: Post) {
-//        postCaption.text = post.caption
+//        commentTextView.text = post.caption
 //        postImageView.kf.indicatorType = .activity
-//        postImageView.kf.setImage(with: URL(string:post.postImageStr), placeholder: #imageLiteral(resourceName: "placeholderCamera"), options: nil, progressBlock: nil, completionHandler: nil)
+//        postImageView.kf.setImage(with: URL(string:post.postImageStr), placeholder: #imageLiteral(resourceName: "imagePH"), options: nil, progressBlock: nil, completionHandler: nil)
 //        
-//        if let imageURL = post.postImageStr {
-//            self.userImageView.kf.indicatorType = .activity
-//            self.userImageView.kf.setImage(with: URL(string:imageURL))
+//        let imageURL = post.postImageStr {
+//            self.postImageView.kf.indicatorType = .activity
+//            self.postImageView.kf.setImage(with: URL(string: post.postImageStr))
 //        }
 //    }
 

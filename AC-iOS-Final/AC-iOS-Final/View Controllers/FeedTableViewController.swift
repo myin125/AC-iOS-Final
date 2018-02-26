@@ -45,7 +45,7 @@ class FeedTableViewController: UITableViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: "FeedCell")
-        fireBaseAuth.delegate = self as? FirebaseAuthServiceDelegate
+        fireBaseAuth.delegate = self
         setupNavBar()
     }
     
@@ -53,8 +53,7 @@ class FeedTableViewController: UITableViewController {
         navigationItem.title = "Meatly"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logOutOfApp))
     }
-    
-    //This sets up the parameters for what the alert should do if a user leaves the add category textfields empty.
+
     private func showAlert(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) { alert in }
@@ -62,7 +61,6 @@ class FeedTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    //This code is what allows the user to log out upon pushing the log out button (log out button can be found in the nav bar block of code.
     @objc private func logOutOfApp() {
         fireBaseAuth.signOut()
         print("User has logged out.")
@@ -72,37 +70,24 @@ class FeedTableViewController: UITableViewController {
         return userPosts.count
     }
     
-    //This code sets up the cells within the table view.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell", for: indexPath) as! FeedTableViewCell
         let post = userPosts[indexPath.row]
-        cell.dataContainer = userPosts
-        cell.commentTextView = userPosts
+//        cell.postImageView.image = post.postImageStr
+        cell.commentTextView.text = post.caption
+//        cell.configurePostCell(post: post)
         return cell
     }
     
 }
 
-//this extension segues from the user's selected category into the flashcard view using dependency injection
-extension CategoryTableViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCategory = categories[indexPath.row]
-        let flashCardVC = FlashCardViewController(selectedCategory: selectedCategory)
-        //present (flashCardVC, animated: true, completion: nil)
-        self.navigationController?.pushViewController(flashCardVC, animated: true) //this is what you use when you want to push a new view controller onto the same navigation controller
-    }
-}
-
-//This extension establishes a delegate for the Firebae Authentication Service.
-extension CategoryTableViewController: FirebaseAuthServiceDelegate {
+extension FeedTableViewController: FirebaseAuthServiceDelegate {
     
-    //This function is called when the user successfully signs out.
     func didSignOut(_ authService: FirebaseAuthService) {
         let loginVC = LoginViewController()
         present(loginVC, animated: true, completion: nil)
     }
     
-    //This function is called when the user failed to sign out.
     func didFailSigningOut(_ authService: FirebaseAuthService, error: Error) {
         showAlert(title: "Sign Out Error", message: error.localizedDescription)
     }

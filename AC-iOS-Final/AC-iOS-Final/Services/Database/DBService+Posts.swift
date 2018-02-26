@@ -14,7 +14,7 @@ extension DBService {
     public func addPosts(caption: String, postImageStr: String, image: UIImage) {
         let childByAutoId = DBService.manager.getPosts().childByAutoId()
         childByAutoId.setValue(["postID"        : childByAutoId.key,
-                                "userID"        : FirebaseAuthService.getCurrentUser()?.userID,
+                                "userID"        : FirebaseAuthService.getCurrentUser()?.uid,
                                 "caption"       : caption,
                                 "postImageStr"  : postImageStr]) { (error, dbRef) in
                                     if let error = error {
