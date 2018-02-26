@@ -10,10 +10,17 @@
 		54915215203F335F009C7138 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54915214203F335F009C7138 /* AppDelegate.swift */; };
 		5491521F203F335F009C7138 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5491521D203F335F009C7138 /* LaunchScreen.storyboard */; };
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
+		74447F9120447CCD00E26368 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9020447CCD00E26368 /* User.swift */; };
+		74447F9320447CD800E26368 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9220447CD800E26368 /* Post.swift */; };
+		74447F9520447CE800E26368 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F9420447CE800E26368 /* Comment.swift */; };
+		74447F972044835A00E26368 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74447F962044835A00E26368 /* StorageService.swift */; };
 		747B16B020445D9500C48B2E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16AF20445D9500C48B2E /* LoginView.swift */; };
 		747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B12044611D00C48B2E /* LoginViewController.swift */; };
 		747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */; };
 		747B16BA204468D500C48B2E /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B9204468D500C48B2E /* FeedTableViewController.swift */; };
+		749392D5204475EB00D5322B /* DBService+Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749392D4204475EB00D5322B /* DBService+Users.swift */; };
+		749392D72044760800D5322B /* DBService+Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749392D62044760800D5322B /* DBService+Posts.swift */; };
+		749392D92044761300D5322B /* DCService+Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 749392D82044761300D5322B /* DCService+Comments.swift */; };
 		74A4F950204473EA00341155 /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4F94F204473EA00341155 /* FirebaseAuthService.swift */; };
 		74A4F9522044745E00341155 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4F9512044745E00341155 /* DBService.swift */; };
 		74F087DD2044700A00758F1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 74F087DC2044700A00758F1E /* GoogleService-Info.plist */; };
@@ -27,10 +34,17 @@
 		54915220203F335F009C7138 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		59D491659A3A9768185B0146 /* Pods_AC_iOS_Final.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AC_iOS_Final.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74447F9020447CCD00E26368 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		74447F9220447CD800E26368 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		74447F9420447CE800E26368 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		74447F962044835A00E26368 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		747B16AF20445D9500C48B2E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		747B16B12044611D00C48B2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		747B16B9204468D500C48B2E /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		749392D4204475EB00D5322B /* DBService+Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService+Users.swift"; sourceTree = "<group>"; };
+		749392D62044760800D5322B /* DBService+Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBService+Posts.swift"; sourceTree = "<group>"; };
+		749392D82044761300D5322B /* DCService+Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DCService+Comments.swift"; sourceTree = "<group>"; };
 		74A4F94F204473EA00341155 /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		74A4F9512044745E00341155 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		74F087DC2044700A00758F1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -93,6 +107,9 @@
 		747B16A820445CE700C48B2E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				74447F9020447CCD00E26368 /* User.swift */,
+				74447F9220447CD800E26368 /* Post.swift */,
+				74447F9420447CE800E26368 /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,7 +137,7 @@
 			children = (
 				747B16AD20445D3400C48B2E /* Database */,
 				747B16AC20445D2C00C48B2E /* Storage */,
-				74A4F94F204473EA00341155 /* FirebaseAuthService.swift */,
+				749392D3204475C100D5322B /* Authentication */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -128,7 +145,7 @@
 		747B16AC20445D2C00C48B2E /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				74A4F9512044745E00341155 /* DBService.swift */,
+				74447F962044835A00E26368 /* StorageService.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -136,6 +153,10 @@
 		747B16AD20445D3400C48B2E /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				74A4F9512044745E00341155 /* DBService.swift */,
+				749392D4204475EB00D5322B /* DBService+Users.swift */,
+				749392D62044760800D5322B /* DBService+Posts.swift */,
+				749392D82044761300D5322B /* DCService+Comments.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -148,6 +169,14 @@
 				54915226203F339A009C7138 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		749392D3204475C100D5322B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				74A4F94F204473EA00341155 /* FirebaseAuthService.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		AE7CF88836135C67319A4D91 /* Pods */ = {
@@ -270,12 +299,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AC-iOS-Final/Pods-AC-iOS-Final-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -295,10 +326,17 @@
 				747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */,
 				747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */,
 				747B16BA204468D500C48B2E /* FeedTableViewController.swift in Sources */,
+				74447F9320447CD800E26368 /* Post.swift in Sources */,
 				74A4F9522044745E00341155 /* DBService.swift in Sources */,
+				749392D92044761300D5322B /* DCService+Comments.swift in Sources */,
+				749392D5204475EB00D5322B /* DBService+Users.swift in Sources */,
 				747B16B020445D9500C48B2E /* LoginView.swift in Sources */,
+				74447F9520447CE800E26368 /* Comment.swift in Sources */,
 				74A4F950204473EA00341155 /* FirebaseAuthService.swift in Sources */,
+				749392D72044760800D5322B /* DBService+Posts.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
+				74447F9120447CCD00E26368 /* User.swift in Sources */,
+				74447F972044835A00E26368 /* StorageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
