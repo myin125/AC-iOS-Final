@@ -12,6 +12,8 @@
 		54915227203F339A009C7138 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54915226203F339A009C7138 /* Assets.xcassets */; };
 		747B16B020445D9500C48B2E /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16AF20445D9500C48B2E /* LoginView.swift */; };
 		747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B12044611D00C48B2E /* LoginViewController.swift */; };
+		747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */; };
+		747B16BA204468D500C48B2E /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747B16B9204468D500C48B2E /* FeedTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		54915226203F339A009C7138 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		747B16AF20445D9500C48B2E /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		747B16B12044611D00C48B2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		747B16B9204468D500C48B2E /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				747B16AF20445D9500C48B2E /* LoginView.swift */,
+				747B16B7204468BE00C48B2E /* FeedTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				747B16B12044611D00C48B2E /* LoginViewController.swift */,
+				747B16B9204468D500C48B2E /* FeedTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -192,6 +198,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				747B16B22044611D00C48B2E /* LoginViewController.swift in Sources */,
+				747B16B8204468BE00C48B2E /* FeedTableViewCell.swift in Sources */,
+				747B16BA204468D500C48B2E /* FeedTableViewController.swift in Sources */,
 				747B16B020445D9500C48B2E /* LoginView.swift in Sources */,
 				54915215203F335F009C7138 /* AppDelegate.swift in Sources */,
 			);
